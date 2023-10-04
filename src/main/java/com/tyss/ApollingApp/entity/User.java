@@ -11,23 +11,23 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
- int user_id;
- double over_all_user_score;
- double overall_body_language_score;
- double overall_communication_score; 
- double overall_confidence_score; 
- double overall_content_score; 
- double overall_energy_score;
- double overall_eye_score;
- double overall_interaction_score;
- double overall_liveliness_score;
- double overall_useage_of_props_score;
- double overall_voice_modulation_score;
- Role role;
- Status status;
- String user_email;
- String user_first_name;
- String user_last_name;
- String user_password;
- String user_phone_number;
+	private int user_id;
+	private double over_all_user_score;
+	private double overall_body_language_score;
+	private double overall_communication_score; 
+	private double overall_confidence_score; 
+	private double overall_content_score; 
+ private double overall_energy_score;
+ private double overall_eye_score;
+ private double overall_interaction_score;
+ private double overall_liveliness_score;
+ private double overall_useage_of_props_score;
+ private double overall_voice_modulation_score;
+ private Role role;
+ private Status status;
+ private String user_email;
+ private String user_first_name;
+ private String user_last_name;
+ private String user_password;
+ private String user_phone_number;
 }
