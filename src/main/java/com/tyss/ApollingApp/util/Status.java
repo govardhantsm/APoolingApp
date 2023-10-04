@@ -1,6 +1,5 @@
 package com.tyss.ApollingApp.util;
 
-public enum Role {
-
-	
+public enum Status {
+ACTIVE,INACTIVE;
 }
