@@ -1,7 +1,10 @@
 package com.tyss.ApollingApp.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Data
@@ -21,7 +24,9 @@ public class Rating {
     private int usage_of_props_score ;
     private int voice_modulation_score ;
     private long presentation_presentation_id ;
+    
     private long voter_user_id ;
     
-    
+    @ManyToOne
+    private User user ;
 }
