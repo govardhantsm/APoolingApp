@@ -1,5 +1,5 @@
 package com.tyss.ApollingApp.util;
 
 public enum Status {
-ACTIVE,INACTIVE;
+ACTIVE,INACTIVE,ONGOING;
 }
