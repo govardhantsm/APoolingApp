@@ -3,12 +3,16 @@ package com.tyss.ApollingApp.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 import com.tyss.ApollingApp.util.Status;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 @Entity
@@ -35,7 +39,11 @@ private String presentation_topic;
 @Enumerated(EnumType.STRING)
 private Status status;
 private int voter_count;
+@ManyToOne
+@Column(name="presenter_user_id")
 private User presenter;
+@OneToMany
+private List<Rating> ratings ;
 
 
 }
