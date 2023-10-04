@@ -13,24 +13,24 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Presentation {
-int presentation_id;
-double over_all_presentation_score;
-double overall_body_language_score;
-double overall_communication_score; 
-double overall_confidence_score; 
-double overall_content_score; 
-double overall_energy_score;
-double overall_eye_score;
-double overall_interaction_score;
-double overall_liveliness_score;
-double overall_useage_of_props_score;
-double overall_voice_modulation_score;
-LocalDate presentation_date;
-String presentation_subject;
-LocalTime presentation_time;
-String presentation_topic;
-Status status;
-int voter_count;
-User presenter;
+private int presentation_id;
+private double over_all_presentation_score;
+private double overall_body_language_score;
+private double overall_communication_score; 
+private double overall_confidence_score; 
+private double overall_content_score; 
+private double overall_energy_score;
+private double overall_eye_score;
+private double overall_interaction_score;
+private double overall_liveliness_score;
+private double overall_useage_of_props_score;
+private double overall_voice_modulation_score;
+private LocalDate presentation_date;
+private String presentation_subject;
+private LocalTime presentation_time;
+private String presentation_topic;
+private Status status;
+private int voter_count;
+private User presenter;
 
 }
