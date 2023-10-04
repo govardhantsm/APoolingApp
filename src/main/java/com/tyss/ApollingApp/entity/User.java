@@ -3,9 +3,14 @@ package com.tyss.ApollingApp.entity;
 import com.tyss.ApollingApp.util.Role;
 import com.tyss.ApollingApp.util.Status;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +18,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
 	private double over_all_user_score;
 	private double overall_body_language_score;
@@ -29,10 +36,13 @@ public class User {
 	private Role role;
 	@Enumerated(EnumType.STRING)
 	private Status status;
+	@Column(unique = true)
 	private String user_email;
 	private String user_first_name;
 	private String user_last_name;
+	
 	private String user_password;
+	@Column(unique = true)
 	private String user_phone_number;
 
 }
