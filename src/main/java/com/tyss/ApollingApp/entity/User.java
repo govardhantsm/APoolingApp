@@ -4,6 +4,8 @@ import com.tyss.ApollingApp.util.Role;
 import com.tyss.ApollingApp.util.Status;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +25,9 @@ public class User {
  double overall_liveliness_score;
  double overall_useage_of_props_score;
  double overall_voice_modulation_score;
+ @Enumerated(EnumType.STRING)
  Role role;
+ @Enumerated(EnumType.STRING)
  Status status;
  String user_email;
  String user_first_name;
