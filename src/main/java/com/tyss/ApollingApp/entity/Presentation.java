@@ -7,12 +7,15 @@ import java.util.Date;
 import com.tyss.ApollingApp.util.Status;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 @Entity
 @Getter
 @Setter
 public class Presentation {
+
 private int presentation_id;
 private double over_all_presentation_score;
 private double overall_body_language_score;
@@ -29,8 +32,10 @@ private LocalDate presentation_date;
 private String presentation_subject;
 private LocalTime presentation_time;
 private String presentation_topic;
+@Enumerated(EnumType.STRING)
 private Status status;
 private int voter_count;
 private User presenter;
+
 
 }
