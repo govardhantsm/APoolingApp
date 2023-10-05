@@ -28,7 +28,7 @@ public class Rating {
 	private boolean status;
 	private int usageOfPropsScore;
 	private int voiceModulationScore;
-	
+
 
 	@ManyToOne
 	private User voter;

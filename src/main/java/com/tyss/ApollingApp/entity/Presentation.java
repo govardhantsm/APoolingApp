@@ -1,9 +1,12 @@
 package com.tyss.ApollingApp.entity;
 
 import java.time.LocalDate;
+
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.tyss.ApollingApp.util.Status;
 
@@ -38,9 +41,10 @@ public class Presentation {
 	private double overallLivelinessScore;
 	private double overallUseageOfPropsScore;
 	private double overallVoiceModulationScore;
+	@CreationTimestamp
 	private LocalDate presentationDate;
-	private String presentationSubject;
 	private LocalTime presentationTime;
+	private String presentationSubject;
 	private String presentationTopic;
 	@Enumerated(EnumType.STRING)
 	private Status status;
