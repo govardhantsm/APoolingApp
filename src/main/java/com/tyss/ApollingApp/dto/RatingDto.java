@@ -1,5 +1,7 @@
 package com.tyss.ApollingApp.dto;
 
+import com.tyss.ApollingApp.util.Role;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +11,6 @@ public class RatingDto {
     private int ratingId ;
     private String comments ;
     private double overAllRatingScore ;
-    private String role ;
+    private Role role ;
     private PresentationDto presentationDto ;
 }
