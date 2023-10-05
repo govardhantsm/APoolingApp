@@ -25,7 +25,7 @@ public class UserService {
     	 Optional<User> user = userDao.findByEmailandPassword(email, password) ;
     	if(user.isPresent()) {
     	 ResponseStructure<User> responseStructure = new ResponseStructure<>() ;
-    	 responseStructure.setStatuscode(200);
+    	 responseStructure.setStatuscode(HttpStatus.FOUND.value());
     	 responseStructure.setMessage("user found");
     	 responseStructure.setData(user.get());
     	 return new ResponseEntity<ResponseStructure<User>> (responseStructure,HttpStatus.OK) ;
@@ -40,7 +40,7 @@ public class UserService {
     	  List<User> students = userDao.findAllStudents() ;
     	  if(students.size()>0) {
     		  ResponseStructure<List<User>> responseStructure = new ResponseStructure<>() ;
-    	    	 responseStructure.setStatuscode(200);
+    	    	 responseStructure.setStatuscode(HttpStatus.CREATED.value());
     	    	 responseStructure.setMessage("user found");
     	    	 responseStructure.setData(students);
     	    	 return new ResponseEntity<ResponseStructure<List<User>>> (responseStructure,HttpStatus.OK) ;
