@@ -1,6 +1,7 @@
 package com.tyss.ApollingApp.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,7 +24,7 @@ public class UserDao {
 		return userRepository.findById(id).get();
 	}
 
-	public User findByEmailandPassword(String email, String password) {
+	public Optional<User> findByEmailandPassword(String email, String password) {
 		return userRepository.findByUser_emailAndUser_password(email, password);
 	}
 
@@ -33,5 +34,9 @@ public class UserDao {
 
 	public void delete(int id) {
 		userRepository.deleteById(id);
+	}
+	
+	public List<User> findAllStudents() {
+		return userRepository.findAllStudents() ;
 	}
 }
