@@ -1,5 +1,7 @@
 package com.tyss.ApollingApp.entity;
 
+import java.util.List;
+
 import com.tyss.ApollingApp.util.Role;
 import com.tyss.ApollingApp.util.Status;
 
@@ -11,6 +13,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,4 +48,9 @@ public class User {
 	@Column(unique = true)
 	private String user_phone_number;
 
+	@OneToMany
+	private List<Presentation> presentations ;
+	
+	@OneToMany	
+	private List<Rating> ratings ;
 }
