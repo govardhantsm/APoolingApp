@@ -28,7 +28,12 @@ public class UserController {
 	@GetMapping("/viewAllStudents")
 	public ResponseEntity<ResponseStructure<List<User>>> findAllStudents() {
 		return service.findAllStudents() ;
+<<<<<<< HEAD
 	}
+=======
+	}   
+	
+>>>>>>> e39d9d535c2d7e8f4513f9f33ff3e9cfb80058f5
 	@PostMapping("/save")
 	public ResponseEntity<ResponseStructure<User>> login(@RequestBody User user) {
 		return service.save(user) ;
