@@ -46,7 +46,7 @@ public class User {
 	
 	private String userPassword;
 	@Column(unique = true)
-	private String userPhoneNumber;
+	private long userPhoneNumber;
 
 	@OneToMany
 	private List<Presentation> presentations ;
