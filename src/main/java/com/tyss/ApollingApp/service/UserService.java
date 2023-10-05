@@ -29,6 +29,7 @@ public class UserService {
 	{
 		user.setUserPassword(genaratePassword.genarateStyring(user.getUserFirstName(), user.getUserPhoneNumber()));
 		
+	
 		ResponseStructure<User> responseStructure = new ResponseStructure();
 		responseStructure.setMessage("Sucess");
 		responseStructure.setStatuscode(HttpStatus.CREATED.value());
