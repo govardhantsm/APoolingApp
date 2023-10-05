@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.tyss.ApollingApp.dao.UserDao;
+import com.tyss.ApollingApp.dto.UserDto;
 import com.tyss.ApollingApp.entity.User;
 import com.tyss.ApollingApp.exceptions.UserNotFoundException;
 import com.tyss.ApollingApp.repository.UserRepository;
@@ -25,7 +26,7 @@ public class UserService {
 	@Autowired
 	GenaratePassword genaratePassword;
 	
-	public ResponseEntity<ResponseStructure<User>> save(User user)
+	public ResponseEntity<ResponseStructure<UserDto>> save(User user)
 	{
 		user.setUserPassword(genaratePassword.genarateStyring(user.getUserFirstName(), user.getUserPhoneNumber()));
 		
@@ -39,7 +40,7 @@ public class UserService {
 	}
 	
 	
-	  public ResponseEntity<ResponseStructure<User>> findByEmailAndPassword(String email, String password) {
+	  public ResponseEntity<ResponseStructure<UserDto>> findByEmailAndPassword(String email, String password) {
 	    	 Optional<User> user = userDao.findByEmailandPassword(email, password) ;
 	    	if(user.isPresent()) {
 	    	 ResponseStructure<User> responseStructure = new ResponseStructure<>() ;
@@ -54,14 +55,14 @@ public class UserService {
 	    	}
 	      }
 	      
-	      public ResponseEntity<ResponseStructure<List<User>>> findAllStudents() {
+	      public ResponseEntity<ResponseStructure<List<UserDto>>> findAllStudents() {
 	    	  List<User> students = userDao.findAllStudents() ;
 	    	  if(students.size()>0) {
 	    		  ResponseStructure<List<User>> responseStructure = new ResponseStructure<>() ;
 	    	    	 responseStructure.setStatuscode(HttpStatus.CREATED.value());
 	    	    	 responseStructure.setMessage("user found");
 	    	    	 responseStructure.setData(students);
-	    	    	 return new ResponseEntity<ResponseStructure<List<User>>> (responseStructure,HttpStatus.OK) ;
+	    	    	 return new ResponseEntity<ResponseStructure<List<UserDto>>> (responseStructure,HttpStatus.OK) ;
 	    	  }
 	    	  else {
 	    		  throw new UserNotFoundException("no users found") ;

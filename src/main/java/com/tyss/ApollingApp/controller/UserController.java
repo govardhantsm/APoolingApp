@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tyss.ApollingApp.dto.UserDto;
 import com.tyss.ApollingApp.entity.User;
 import com.tyss.ApollingApp.service.UserService;
 import com.tyss.ApollingApp.util.Login;
@@ -21,17 +22,17 @@ public class UserController {
 	UserService service ;
 	
 	@PostMapping("/login")
-	public ResponseEntity<ResponseStructure<User>> login(@RequestBody Login login) {
+	public ResponseEntity<ResponseStructure<UserDto>> login(@RequestBody Login login) {
 		return service.findByEmailAndPassword(login.getEmail(), login.getPassword()) ;
 	}
 	
 	@GetMapping("/viewAllStudents")
-	public ResponseEntity<ResponseStructure<List<User>>> findAllStudents() {
+	public ResponseEntity<ResponseStructure<List<UserDto>>> findAllStudents() {
 		return service.findAllStudents() ;
 	}   
 	
 	@PostMapping("/save")
-	public ResponseEntity<ResponseStructure<User>> login(@RequestBody User user) {
+	public ResponseEntity<ResponseStructure<UserDto>> login(@RequestBody User user) {
 		return service.save(user) ;
 	} 
 }
