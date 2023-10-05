@@ -14,6 +14,9 @@ import com.tyss.ApollingApp.dao.UserDao;
 import com.tyss.ApollingApp.dto.UserDto;
 import com.tyss.ApollingApp.entity.User;
 import com.tyss.ApollingApp.exceptions.UserNotFoundException;
+import com.tyss.ApollingApp.parsing.ParsePresentationDto;
+import com.tyss.ApollingApp.parsing.ParseRatingDto;
+import com.tyss.ApollingApp.parsing.ParseUserDto;
 import com.tyss.ApollingApp.repository.UserRepository;
 import com.tyss.ApollingApp.util.GenaratePassword;
 import com.tyss.ApollingApp.util.ResponseStructure;
@@ -26,32 +29,38 @@ public class UserService {
 	@Autowired
 	GenaratePassword genaratePassword;
 	
+	@Autowired
+	ParseUserDto parseUserDto ;
+	
+	@Autowired
+	ParseRatingDto parseRatingDto ;
+	
+	@Autowired
+	ParsePresentationDto parsePresentationDto ;
+	
 	public ResponseEntity<ResponseStructure<UserDto>> save(User user)
 	{
-		user.setUserPassword(genaratePassword.genarateStyring(user.getUserFirstName(), user.getUserPhoneNumber()));
-<<<<<<< HEAD
+		user.setUserPassword(genaratePassword.genarateString(user.getUserFirstName(),Long.toString(user.getUserPhoneNumber()) ));
+
 		userDao.save(user);
-=======
-		
-	
->>>>>>> e39d9d535c2d7e8f4513f9f33ff3e9cfb80058f5
-		ResponseStructure<User> responseStructure = new ResponseStructure();
+        
+		ResponseStructure<UserDto> responseStructure = new ResponseStructure();
 		responseStructure.setMessage("Sucess");
 		responseStructure.setStatuscode(HttpStatus.CREATED.value());
-		responseStructure.setData(user);
+		responseStructure.setData(parseUserDto.parseUserToUserDto(user));
 		
-		return new ResponseEntity<ResponseStructure<User>>(responseStructure,HttpStatus.CREATED);
+		return new ResponseEntity<ResponseStructure<UserDto>>(responseStructure,HttpStatus.CREATED);
 	}
 	
 	
 	  public ResponseEntity<ResponseStructure<UserDto>> findByEmailAndPassword(String email, String password) {
 	    	 Optional<User> user = userDao.findByEmailandPassword(email, password) ;
 	    	if(user.isPresent()) {
-	    	 ResponseStructure<User> responseStructure = new ResponseStructure<>() ;
+	    	 ResponseStructure<UserDto> responseStructure = new ResponseStructure<>() ;
 	    	 responseStructure.setStatuscode(HttpStatus.FOUND.value());
 	    	 responseStructure.setMessage("user found");
-	    	 responseStructure.setData(user.get());
-	    	 return new ResponseEntity<ResponseStructure<User>> (responseStructure,HttpStatus.OK) ;
+	    	 responseStructure.setData(parseUserDto.parseUserToUserDto(user.get()));
+	    	 return new ResponseEntity<ResponseStructure<UserDto>> (responseStructure,HttpStatus.OK) ;
 	    	}
 	    	 
 	    	else {
@@ -62,10 +71,10 @@ public class UserService {
 	      public ResponseEntity<ResponseStructure<List<UserDto>>> findAllStudents() {
 	    	  List<User> students = userDao.findAllStudents() ;
 	    	  if(students.size()>0) {
-	    		  ResponseStructure<List<User>> responseStructure = new ResponseStructure<>() ;
+	    		  ResponseStructure<List<UserDto>> responseStructure = new ResponseStructure<>() ;
 	    	    	 responseStructure.setStatuscode(HttpStatus.CREATED.value());
 	    	    	 responseStructure.setMessage("user found");
-	    	    	 responseStructure.setData(students);
+	    	    	 responseStructure.setData(parseUserDto.ParseUserToUserDto(students));
 	    	    	 return new ResponseEntity<ResponseStructure<List<UserDto>>> (responseStructure,HttpStatus.OK) ;
 	    	  }
 	    	  else {

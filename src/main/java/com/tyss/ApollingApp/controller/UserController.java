@@ -19,24 +19,20 @@ import com.tyss.ApollingApp.util.ResponseStructure;
 public class UserController {
 
 	@Autowired
-	UserService service ;
-	
+	UserService service;
+
 	@PostMapping("/login")
 	public ResponseEntity<ResponseStructure<UserDto>> login(@RequestBody Login login) {
-		return service.findByEmailAndPassword(login.getEmail(), login.getPassword()) ;
+		return service.findByEmailAndPassword(login.getEmail(), login.getPassword());
 	}
-	
+
 	@GetMapping("/viewAllStudents")
 	public ResponseEntity<ResponseStructure<List<UserDto>>> findAllStudents() {
-		return service.findAllStudents() ;
-<<<<<<< HEAD
+		return service.findAllStudents();
 	}
-=======
-	}   
-	
->>>>>>> e39d9d535c2d7e8f4513f9f33ff3e9cfb80058f5
+
 	@PostMapping("/save")
-	public ResponseEntity<ResponseStructure<UserDto>> login(@RequestBody User user) {
-		return service.save(user) ;
-	} 
+	public ResponseEntity<ResponseStructure<UserDto>> saveUser(@RequestBody User user) {
+		return service.save(user);
+	}
 }
