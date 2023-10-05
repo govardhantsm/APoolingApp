@@ -14,23 +14,23 @@ import lombok.Setter;
 public class Rating {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int rating_id;
-	private int body_language_score;
+	private int ratingId;
+	private int bodyLanguageScore;
 	private String comments;
-	private int communication_score;
-	private int confidence_score;
-	private int content_score;
-	private int energy_score;
-	private int eye_contact_score;
-	private int interation_score;
-	private int liveliness_score;
-	private double over_all_rating_score;
+	private int communicationScore;
+	private int confidenceScore;
+	private int contentScore;
+	private int energyScore;
+	private int eyeContactScore;
+	private int interationScore;
+	private int livelinessScore;
+	private double overallRatingScore;
 	private boolean status;
-	private int usage_of_props_score;
-	private int voice_modulation_score;
-	private long presentation_presentation_id;
+	private int usageOfPropsScore;
+	private int voiceModulationScore;
+	private long PresentationId;
 
-	private long voter_user_id;
+	private long voterUserId;
 
 	@ManyToOne
 	private User user;
