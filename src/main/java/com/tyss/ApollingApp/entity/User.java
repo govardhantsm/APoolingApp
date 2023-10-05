@@ -23,30 +23,30 @@ import lombok.Setter;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int user_id;
-	private double over_all_user_score;
-	private double overall_body_language_score;
-	private double overall_communication_score;
-	private double overall_confidence_score;
-	private double overall_content_score;
-	private double overall_energy_score;
-	private double overall_eye_score;
-	private double overall_interaction_score;
-	private double overall_liveliness_score;
-	private double overall_useage_of_props_score;
-	private double overall_voice_modulation_score;
+	private int userId;
+	private double overAllUserScore;
+	private double overallBodyLanguageScore;
+	private double overallCommunicationScore;
+	private double overallConfidenceScore;
+	private double overallContentScore;
+	private double overallEnergyScore;
+	private double overallEyeScore;
+	private double overallInteractionScore;
+	private double overallLivelinessScore;
+	private double overallUseageOfPropsScore;
+	private double overallVoiceModulationScore;
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	@Column(unique = true)
-	private String user_email;
-	private String user_first_name;
-	private String user_last_name;
+	private String userEmail;
+	private String userFirstName;
+	private String userLastName;
 	
-	private String user_password;
+	private String userPassword;
 	@Column(unique = true)
-	private String user_phone_number;
+	private String userPhoneNumber;
 
 	@OneToMany
 	private List<Presentation> presentations ;
