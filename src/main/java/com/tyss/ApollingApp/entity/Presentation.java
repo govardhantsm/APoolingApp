@@ -14,6 +14,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -45,7 +46,7 @@ public class Presentation {
 	private Status status;
 	private int voter_count;
 	@ManyToOne
-	@Column(name = "presenter_user_id")
+	@JoinColumn(name = "presenter_user_id")
 	private User presenter;
 	@OneToMany
 	private List<Rating> ratings;
