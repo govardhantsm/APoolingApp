@@ -30,10 +30,10 @@ public class Rating {
 	private int voiceModulationScore;
 	private long PresentationId;
 
-	private long voterUserId;
+	
 
 	@ManyToOne
-	private User user;
+	private User voter;
 	
 	@ManyToOne
 	private Presentation presentation ;

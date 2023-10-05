@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.tyss.ApollingApp.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-	@Query(value = "SELECT u FROM User u WHERE u.user_email=?1 AND u.user_password=?2")
+	@Query(value = "SELECT u FROM User u WHERE u.userEmail=?1 AND u.userPassword=?2")
 	User findByUser_emailAndUser_password(String Email, String Password);
 }
