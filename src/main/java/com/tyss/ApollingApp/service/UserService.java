@@ -28,7 +28,7 @@ public class UserService {
 	public ResponseEntity<ResponseStructure<User>> save(User user)
 	{
 		user.setUserPassword(genaratePassword.genarateStyring(user.getUserFirstName(), user.getUserPhoneNumber()));
-		
+		userDao.save(user);
 		ResponseStructure<User> responseStructure = new ResponseStructure();
 		responseStructure.setMessage("Sucess");
 		responseStructure.setStatuscode(HttpStatus.CREATED.value());
