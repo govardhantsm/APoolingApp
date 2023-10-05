@@ -34,4 +34,8 @@ public class Rating {
 
 	@ManyToOne
 	private User user;
+	
+	@ManyToOne
+	private Presentation presentation ;
+	
 }
