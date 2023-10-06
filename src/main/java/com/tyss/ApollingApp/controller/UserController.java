@@ -2,9 +2,7 @@ package com.tyss.ApollingApp.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,27 +15,18 @@ import com.tyss.ApollingApp.dto.UserDto;
 import com.tyss.ApollingApp.entity.Presentation;
 import com.tyss.ApollingApp.entity.Rating;
 import com.tyss.ApollingApp.entity.User;
-<<<<<<< HEAD
-
-=======
 import com.tyss.ApollingApp.service.PresentationService;
 import com.tyss.ApollingApp.service.RatingService;
 import com.tyss.ApollingApp.service.UserService;
->>>>>>> 288e120027266ba0dc180f5a5df11096e7ce3094
 import com.tyss.ApollingApp.util.Login;
 import com.tyss.ApollingApp.util.ResponseStructure;
 
 @RestController
 public class UserController {
 
-<<<<<<< HEAD
-	
-	
-	
-=======
 	@Autowired
 	UserService service;
-	
+
 	@Autowired
 	RatingService ratingService;
 	@Autowired
@@ -59,28 +48,24 @@ public class UserController {
 	}
 
 	@GetMapping("/checkRating")
-	public ResponseEntity<ResponseStructure<RatingDto>> checkRatings(@RequestParam int presentationId, @RequestParam int userId )
-	{
+	public ResponseEntity<ResponseStructure<RatingDto>> checkRatings(@RequestParam int presentationId,
+			@RequestParam int userId) {
 		return ratingService.CheckRating(presentationId, userId);
 	}
-	
+
 	@PostMapping("/saveRating")
-	public ResponseEntity<ResponseStructure<Rating>> saveRating(@RequestBody Rating rating)
-	{
+	public ResponseEntity<ResponseStructure<Rating>> saveRating(@RequestBody Rating rating) {
 		return ratingService.saveRating(rating);
 	}
-	
+
 	@GetMapping("/completedPresentations")
-	public ResponseEntity<ResponseStructure<List<Presentation>>> findCompletedPresentations(@RequestParam int id)
-	{
+	public ResponseEntity<ResponseStructure<List<Presentation>>> findCompletedPresentations(@RequestParam int id) {
 		return presentationService.findCompletedPresentations(id);
 	}
-	
+
 	@GetMapping("/getRatings")
-	public ResponseEntity<ResponseStructure<List<Rating>>> findRatingsofthestudentPresentationId(@RequestParam int id)
-	{
+	public ResponseEntity<ResponseStructure<List<Rating>>> findRatingsofthestudentPresentationId(@RequestParam int id) {
 		return ratingService.findRatingsofStudentByPresentationId(id);
 	}
 
->>>>>>> 288e120027266ba0dc180f5a5df11096e7ce3094
 }

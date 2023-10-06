@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.tyss.ApollingApp.entity.Presentation;
-import com.tyss.ApollingApp.entity.User;
-import com.tyss.ApollingApp.util.Status;
 
 public interface PresentationRepository extends JpaRepository<Presentation, Integer> {
     
