@@ -5,12 +5,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.tyss.ApollingApp.dao.RatingDao;
 import com.tyss.ApollingApp.dao.UserDao;
+import com.tyss.ApollingApp.dto.PresentationDto;
+import com.tyss.ApollingApp.dto.RatingDto;
 import com.tyss.ApollingApp.dto.UserDto;
 import com.tyss.ApollingApp.entity.User;
 import com.tyss.ApollingApp.exceptions.UserNotFoundException;
@@ -81,6 +85,22 @@ public class UserService {
 	    		  throw new UserNotFoundException("no users found") ;
 	    	  }
 	      }
+	public ResponseEntity<ResponseStructure<List<UserDto>>> getUser(int id)
+	{
+		Optional<User> user = userDao.findById(id);
+		if(user.isPresent())
+		{
+			ResponseStructure<UserDto> responseStructure = new ResponseStructure();
+			responseStructure.setMessage("Found");
+			responseStructure.setStatuscode(HttpStatus.FOUND.value());
+			responseStructure.setData(parseUserDto.parseUserToUserDto(user.get()));
+			
+			return new ResponseEntity(responseStructure,HttpStatus.OK);
+		}
+		else
+			throw new UserNotFoundException("User Not found for the Specified id");
+	}
+	
 	
 
 }

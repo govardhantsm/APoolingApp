@@ -13,6 +13,9 @@ public interface RatingRepository extends JpaRepository<Rating, Integer> {
 	@Query(value = "SELECT r FROM Rating r WHERE r.voter.userId =?1")
 	public List<Rating> findRatingByVoterId(int id);
 	
+	@Query(value = "SELECT r FROM Rating r WHERE r.presentation.presentationId =?1 And r.voter.role=STUDENT")
+	public List<Rating> findRatingByPresentationIdAndStatus(int id);
+
 	@Query(value = "SELECT r FROM Rating r WHERE r.presentation.presentationId =?1")
 	public List<Rating> findRatingByPresentationId(int id);
 	
