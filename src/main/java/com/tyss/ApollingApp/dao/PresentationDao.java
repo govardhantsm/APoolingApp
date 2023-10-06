@@ -36,6 +36,14 @@ public class PresentationDao {
 		return user.getPresentations();
 	}
 	
+	public List<Presentation> findOngoingPresentation(){
+		return presentationRepository.findOngoingPresentation() ;
+	}
+	
+	public List<Presentation> findActivePresentations() {
+		return presentationRepository.findActivePresentation() ;
+	}
+	
 	public List<Presentation> findCompletedPresentation(int id){
 		
 		return presentationRepository.findCompletedPresentation(id);

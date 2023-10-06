@@ -2,6 +2,10 @@ package com.tyss.ApollingApp.entity;
 
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tyss.ApollingApp.util.Role;
 import com.tyss.ApollingApp.util.Status;
 
@@ -43,14 +47,18 @@ public class User {
 	private String userEmail;
 	private String userFirstName;
 	private String userLastName;
-	
+
 	private String userPassword;
 	@Column(unique = true)
 	private long userPhoneNumber;
 
+	@JsonIgnore
 	@OneToMany
-	private List<Presentation> presentations ;
-	
-	@OneToMany	
-	private List<Rating> ratings ;
+	@Cascade(CascadeType.ALL)
+	private List<Presentation> presentations;
+
+	@JsonIgnore
+	@OneToMany
+	@Cascade(CascadeType.ALL)
+	private List<Rating> ratings;
 }
