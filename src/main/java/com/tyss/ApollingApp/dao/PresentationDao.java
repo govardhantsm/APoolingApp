@@ -16,6 +16,8 @@ public class PresentationDao {
 
 	@Autowired
 	UserDao userDao;
+	
+	
 
 	public Presentation savePresentation(Presentation presentation) {
 		return presentationRepository.save(presentation);
@@ -30,10 +32,11 @@ public class PresentationDao {
 	}
 
 	public List<Presentation> findPresentationsByUserId(int id) {
-		User user = userDao.findById(id);
+		User user = userDao.findById(id).get();
 		return user.getPresentations();
 	}
 	
+<<<<<<< HEAD
 	public List<Presentation> findOngoingPresentation(){
 		return presentationRepository.findOngoingPresentation() ;
 	}
@@ -44,5 +47,10 @@ public class PresentationDao {
 	
 	public List<Presentation> findCompletedPresentation() {
 		return presentationRepository.findCompletedPresentation() ;
+=======
+	public List<Presentation> findCompletedPresentation(int id){
+		
+		return presentationRepository.findCompletedPresentation(id);
+>>>>>>> 288e120027266ba0dc180f5a5df11096e7ce3094
 	}
 }
