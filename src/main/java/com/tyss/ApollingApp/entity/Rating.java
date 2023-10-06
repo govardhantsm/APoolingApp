@@ -28,12 +28,10 @@ public class Rating {
 	private boolean status;
 	private int usageOfPropsScore;
 	private int voiceModulationScore;
-	private long PresentationId;
 
-	private long voterUserId;
 
 	@ManyToOne
-	private User user;
+	private User voter;
 	
 	@ManyToOne
 	private Presentation presentation ;

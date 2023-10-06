@@ -1,9 +1,9 @@
 package com.tyss.ApollingApp.exceptions;
 
-public class UserNotFoundException extends RuntimeException {
+public class RatingNotFoundException extends RuntimeException {
 	private String message;
 
-	public UserNotFoundException(String message) {
+	public RatingNotFoundException(String message) {
 		this.message = message;
 	}
 
@@ -12,4 +12,6 @@ public class UserNotFoundException extends RuntimeException {
 		return message;
 	}
 
-}
+} 
+
+
