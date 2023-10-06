@@ -18,4 +18,13 @@ public class ApplicationExceptions {
 		response.setData(u.getMessage());
 		return new ResponseEntity(response,HttpStatus.NOT_FOUND) ;
 	}
+	
+	@ExceptionHandler(value = PresentationNotFoundException.class)
+	public ResponseEntity<ResponseStructure<String>> presentationNotFoundExceptionHandler(PresentationNotFoundException u) {
+		ResponseStructure<String> response = new ResponseStructure<>() ;
+		response.setStatuscode(HttpStatus.NOT_FOUND.value());
+		response.setMessage("Request Failed");
+		response.setData(u.getMessage());
+		return new ResponseEntity(response,HttpStatus.NOT_FOUND) ;
+	}
 }

@@ -44,8 +44,9 @@ public class Presentation {
 	@CreationTimestamp
 	private LocalDate presentationDate;
 	private LocalTime presentationTime;
-	private String presentationSubject;
-	private String presentationTopic;
+  private String presentationSubject ;
+  private String presentationTopic ;
+	
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	private int voterCount;

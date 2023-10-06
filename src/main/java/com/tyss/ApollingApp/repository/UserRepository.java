@@ -1,6 +1,6 @@
 package com.tyss.ApollingApp.repository;
 
-import java.util.List;
+import java.util.List;  
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,8 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	Optional<User> findByUser_emailAndUser_password(String Email, String Password);
 	
 	public List<User> findUserByRole(Role role);
-	
-	@Query(value = "select u from User u where u.role=STUDENT")
+	@Query(value = "select u from User u where u.role=STUDENT and u.status=ACTIVE")
 	public List<User> findAllStudents() ;
 	
 	public long countByStatus(Status status);

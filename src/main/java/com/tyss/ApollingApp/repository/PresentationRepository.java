@@ -20,4 +20,6 @@ public interface PresentationRepository extends JpaRepository<Presentation, Inte
 	@Query("select p from Presentation p where (p.status=COMPLETED)")
 	List<Presentation> findCompletedPresentation() ;
 	
+	@Query("select p from Presentation p where p.status=ONGOING")
+	List<Presentation> findOngoingPresentation() ;
 }                      
